@@ -1,0 +1,9 @@
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\bin\Debug\ReverseInputLines.exe.config
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\bin\Debug\ReverseInputLines.exe
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\bin\Debug\ReverseInputLines.pdb
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\obj\Debug\ReverseInputLines.FormMain.resources
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\obj\Debug\ReverseInputLines.Properties.Resources.resources
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\obj\Debug\ReverseInputLines.csproj.GenerateResource.cache
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\obj\Debug\ReverseInputLines.csproj.CoreCompileInputs.cache
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\obj\Debug\ReverseInputLines.exe
+C:\Users\Yaneka\source\repos\ReverseInputLines\ReverseInputLines\obj\Debug\ReverseInputLines.pdb

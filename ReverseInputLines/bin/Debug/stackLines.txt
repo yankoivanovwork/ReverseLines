@@ -1,0 +1,10 @@
+Cats are meowing.
+Dogs bark.
+Kids are happy.
+House is blue.
+Have a nice day today!
+Create a StringBuilder that expects to hold 50 characters.
+Replace all lowercase k's with uppercase K's.
+Display the number of characters in the StringBuilder and its string.
+Insert a string at the beginning of the StringBuilder.
+Append a format string to the end of the StringBuilder.
