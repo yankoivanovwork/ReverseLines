@@ -27,6 +27,8 @@ namespace ReverseInputLines
 
         private void BtnLoadFile_Click(object sender, EventArgs e)
         {
+            openFile.Filter = "Text|*.txt";
+
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 SaveLines2Collections(openFile.FileName);
@@ -40,14 +42,11 @@ namespace ReverseInputLines
 
             string[] allLines = File.ReadAllLines(path);
 
-            if (path.Contains(".txt"))
-            {
-                listTextLines = allLines.ToList();
+            listTextLines = allLines.ToList();
 
-                for (int i = 0; i < allLines.Length; i++)
-                {
-                    stackTextLines.Push(allLines.ElementAtOrDefault(i));
-                }
+            for (int i = 0; i < allLines.Length; i++)
+            {
+                stackTextLines.Push(allLines.ElementAtOrDefault(i));
             }
         }
 
@@ -56,58 +55,32 @@ namespace ReverseInputLines
             string listLinesDir = Environment.CurrentDirectory + @"\listLines.txt";
             string stackLinesDir = Environment.CurrentDirectory + @"\stackLines.txt";
 
-            SaveListLines2Text(listTextLines, listLinesDir);
-            SaveStackLines2Text(stackTextLines, stackLinesDir);
+            SaveListLinesToTextFile(listTextLines, listLinesDir);
+            SaveStackLinesToTextFile(stackTextLines, stackLinesDir);
 
             Process.Start("notepad.exe", listLinesDir);
             Process.Start("notepad.exe", stackLinesDir);
         }
 
-        private void SaveListLines2Text(List<string> listTextLines, string saveDir)
+        private void SaveListLinesToTextFile(List<string> listTextLines, string saveDir)
         {
-            StringBuilder lineBuilder = new StringBuilder();
-            string saveLines = string.Empty;
-
-            listTextLines.Reverse();
-
-            if (listTextLines.Count <= 8)
+            using (StreamWriter sw = new StreamWriter(saveDir))
             {
-                for (int i = 0; i < listTextLines.Count; i++)
+                for (int i = listTextLines.Count - 1; i >= 0; i--)
                 {
-                    saveLines += (listTextLines.ElementAtOrDefault(i) + Environment.NewLine);
+                    sw.WriteLine(listTextLines.ElementAtOrDefault(i));
                 }
-                File.WriteAllText(saveDir, saveLines);
-            }
-            else
-            {
-                for (int i = 0; i < listTextLines.Count; i++)
-                {
-                    lineBuilder.AppendLine(listTextLines.ElementAtOrDefault(i));
-                }
-                File.WriteAllText(saveDir, lineBuilder.ToString());
             }
         }
 
-        private void SaveStackLines2Text(Stack<string> stackTextLines, string saveDir)
+        private void SaveStackLinesToTextFile(Stack<string> stackTextLines, string saveDir)
         {
-            StringBuilder lineBuilder = new StringBuilder();
-            string saveLines = string.Empty;
-
-            if (listTextLines.Count <= 8)
+            using (StreamWriter sw = new StreamWriter(saveDir))
             {
-                foreach (var line in stackTextLines)
+                for (int i = 0; i < stackTextLines.Count; i++)
                 {
-                    saveLines += (line + Environment.NewLine);
+                    sw.WriteLine(stackTextLines.ElementAtOrDefault(i));
                 }
-                File.WriteAllText(saveDir, saveLines);
-            }
-            else
-            {
-                foreach (var line in stackTextLines)
-                {
-                    lineBuilder.AppendLine(line);
-                }
-                File.WriteAllText(saveDir, lineBuilder.ToString());
             }
         }
     }
